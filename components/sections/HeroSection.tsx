@@ -1,10 +1,9 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
 import { USER } from '@/lib/data'
 
-const ROLES = ['Developer', 'Builder', 'OSINT Engineer', 'JEE Aspirant']
+const ROLES = ['Full Stack Developer', 'Builder', 'OSINT Engineer', 'JEE Aspirant']
 
 export default function HeroSection() {
   const [roleIdx, setRoleIdx] = useState(0)
@@ -46,7 +45,7 @@ export default function HeroSection() {
           <span className="text-white/15" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.18)' }}>Tiwari.</span>
         </motion.h1>
 
-        {/* Role rotator — exact Kavan style */}
+        {/* Role rotator */}
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.5 }}
           className="text-xl md:text-2xl text-zinc-400 font-satoshi mb-4">
           I am a{' '}
@@ -60,7 +59,7 @@ export default function HeroSection() {
         {/* Tagline */}
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.5 }}
           className="text-zinc-500 text-base max-w-lg leading-relaxed mb-10 font-satoshi">
-          Crafting tools that matter — blending{' '}
+          Crafting tools that matter, blending{' '}
           <span className="text-accent font-medium">intelligence</span>{' '}
           with cutting-edge technology.
         </motion.p>
@@ -69,7 +68,7 @@ export default function HeroSection() {
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }}
           className="flex flex-wrap gap-4 items-center">
           <a href="#projects"
-            className="px-7 py-2.5 bg-accent text-black text-sm font-semibold rounded-full font-satoshi hover:bg-white transition-all hover:scale-105">
+            className="px-7 py-2.5 bg-accent text-black text-sm font-semibold rounded-full font-satoshi hover:bg-white transition-all duration-300 hover:scale-105">
             See my work
           </a>
           <div className="flex items-center gap-4 pl-2">
@@ -86,7 +85,7 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Tagline quote — Kavan-style */}
+        {/* Tagline quote */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
           className="mt-10 pl-4 border-l-4 border-accent/60">
           <p className="text-sm italic text-zinc-600 font-satoshi">
@@ -102,7 +101,7 @@ export default function HeroSection() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
         <span className="text-[10px] text-zinc-700 uppercase tracking-widest font-satoshi">Scroll</span>
-        <ArrowDown size={13} className="text-zinc-700 animate-bounce" />
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-700 animate-bounce"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
       </motion.div>
     </section>
   )
