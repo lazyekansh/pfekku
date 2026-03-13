@@ -7,7 +7,8 @@ export const USER = {
   github: 'https://github.com/lazyekansh',
   telegram: 'https://t.me/lazyekansh',
   instagram: 'https://instagram.com/lazyekansh',
-  shortBio: 'I started coding because I wanted to understand how the internet actually works, not just use it. That curiosity slowly turned into building real tools that people can use. Over time I began creating OSINT systems, Telegram bots, lookup APIs, and AI powered platforms. I am the creator of osint.ek4nsh.in, an OSINT toolkit focused on investigation utilities, and I am currently working on EheniasAI, an AI platform designed to help aspirants study more effectively.',
+  shortBio: 'Ekansh Tiwari, also known online as lazyekansh or ek4nsh, is a young developer from Noida, India, born on 26 November 2009. I am known for building innovative tools and automation systems with a strong focus on OSINT platforms, AI systems, and developer utilities.',
+  linkedin: 'https://linkedin.com/in/lazyekansh',
 }
 
 export const BIO = {
@@ -36,11 +37,11 @@ export const BIO = {
 
 export const PROJECTS = [
   {
-    id: 'osint-tool',
-    title: 'OSINT Tool',
+    id: 'nuviac-osint',
+    title: 'Nuviac OSINT',
     tagline: 'Digital reconnaissance platform.',
-    desc: 'Multi-source intelligence tool for number lookups, identity resolution, and API aggregation with primary/fallback architecture.',
-    longDesc: "The OSINT Tool is my most serious infrastructure project. It aggregates data from multiple sources to help gather intelligence quickly, handling mobile number lookups, cross-platform identity resolution, and data aggregation from several APIs. The primary/fallback architecture means it never goes down even if one source fails.",
+    desc: 'Multi-source intelligence tool for number lookups, identity resolution, and API aggregation with primary/fallback architecture. My flagship OSINT project.',
+    longDesc: "Nuviac OSINT is my most serious infrastructure project and the main focus of my work. It aggregates data from multiple sources to help gather intelligence quickly, handling mobile number lookups, cross-platform identity resolution, and data aggregation from several APIs. The primary/fallback architecture means it never goes down even if one source fails.",
     tags: ['Next.js', 'Node.js', 'Python', 'APIs'],
     link: 'https://osint.ek4nsh.in',
     accent: '#a855f7',
@@ -56,6 +57,28 @@ export const PROJECTS = [
     ],
     tech: ['Next.js', 'Node.js', 'Python', 'Vercel', 'REST APIs'],
     containerClassName: 'md:col-span-2 md:row-span-2',
+  },
+  {
+    id: 'lazygram',
+    title: 'Lazygram',
+    tagline: 'Pixel-perfect Instagram clone.',
+    desc: 'Full-featured social platform with Stories, Feed, real-time updates, and Firebase auth.',
+    longDesc: "Lazygram started as a UI challenge, to rebuild Instagram pixel-perfectly. It became a full-stack project with real auth, image uploads, a live feed, Stories, and Redux global state. Everything you would expect from a social app.",
+    tags: ['Next.js', 'Redux', 'Firebase'],
+    link: 'https://lazygram.vercel.app',
+    accent: '#ec4899',
+    gradientFrom: 'rgba(236,72,153,0.15)',
+    gradientTo: 'rgba(157,23,77,0.05)',
+    category: 'Full Stack',
+    year: '2023',
+    features: [
+      'Stories and Feed with real-time updates',
+      'Firebase auth and image uploads',
+      'Redux for global state management',
+      'Responsive and pixel-perfect UI',
+    ],
+    tech: ['Next.js', 'Redux', 'Firebase', 'Tailwind'],
+    containerClassName: 'md:col-span-3',
   },
   {
     id: 'ehenias',
@@ -100,28 +123,6 @@ export const PROJECTS = [
     ],
     tech: ['React', 'Socket.io', 'Chess.js', 'Stockfish WASM'],
     containerClassName: 'md:col-span-2',
-  },
-  {
-    id: 'lazygram',
-    title: 'Lazygram',
-    tagline: 'Pixel-perfect Instagram clone.',
-    desc: 'Full-featured social platform with Stories, Feed, real-time updates, and Firebase auth.',
-    longDesc: "Lazygram started as a UI challenge, to rebuild Instagram pixel-perfectly. It became a full-stack project with real auth, image uploads, a live feed, Stories, and Redux global state. Everything you would expect from a social app.",
-    tags: ['Next.js', 'Redux', 'Firebase'],
-    link: 'https://lazygram.vercel.app',
-    accent: '#ec4899',
-    gradientFrom: 'rgba(236,72,153,0.15)',
-    gradientTo: 'rgba(157,23,77,0.05)',
-    category: 'Full Stack',
-    year: '2023',
-    features: [
-      'Stories and Feed with real-time updates',
-      'Firebase auth and image uploads',
-      'Redux for global state management',
-      'Responsive and pixel-perfect UI',
-    ],
-    tech: ['Next.js', 'Redux', 'Firebase', 'Tailwind'],
-    containerClassName: 'md:col-span-3',
   },
   {
     id: 'skycast',

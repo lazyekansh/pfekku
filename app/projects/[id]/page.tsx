@@ -50,14 +50,45 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             </a>
           </motion.div>
 
-          {/* Gradient hero banner */}
+          {/* Gradient hero banner with SVG mockup */}
           <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
-            className="mt-12 h-52 rounded-2xl border border-zinc-800 flex items-center justify-center overflow-hidden relative"
+            className="mt-12 rounded-2xl border border-zinc-800 overflow-hidden relative"
             style={{ background: `linear-gradient(135deg, ${project.gradientFrom}, ${project.gradientTo})` }}>
-            <span className="font-cabinet font-bold text-8xl select-none"
-              style={{ color: project.accent + '18', WebkitTextStroke: `1px ${project.accent}30` }}>
-              {project.title}
-            </span>
+
+            {/* Bento preview grid */}
+            <div className="grid grid-cols-3 gap-3 p-6">
+              {/* Main mockup */}
+              <div className="col-span-2 rounded-xl border border-white/5 bg-black/20 overflow-hidden">
+                <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/5">
+                  <span className="w-2 h-2 rounded-full bg-red-500/50" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-500/50" />
+                  <span className="w-2 h-2 rounded-full bg-green-500/50" />
+                  <span className="text-[9px] text-zinc-600 ml-2 font-satoshi truncate">{project.link}</span>
+                </div>
+                <div className="p-4 flex flex-col items-center justify-center h-28">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={project.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-60 mb-2">
+                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                    <path d="m3 9h18" />
+                    <path d="m9 21V9" />
+                  </svg>
+                  <p className="text-[10px] text-zinc-500 font-satoshi">{project.title}</p>
+                </div>
+              </div>
+
+              {/* Side mockups */}
+              <div className="flex flex-col gap-3">
+                <div className="flex-1 rounded-xl border border-white/5 bg-black/20 flex items-center justify-center p-3">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={project.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+                    <path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                  </svg>
+                </div>
+                <div className="flex-1 rounded-xl border border-white/5 bg-black/20 flex items-center justify-center p-3">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={project.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Long desc */}

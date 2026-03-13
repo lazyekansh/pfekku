@@ -14,6 +14,9 @@ const InstagramIcon = () => (
 const EmailIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
 )
+const LinkedInIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+)
 const ArrowUpRightIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
 )
@@ -23,6 +26,7 @@ const links = [
   { label: 'Telegram', sub: '@lazyekansh', href: USER.telegram, Icon: TelegramIcon, color: 'hover:text-[#2AABEE] hover:border-[#2AABEE]/40' },
   { label: 'Instagram', sub: '@lazyekansh', href: USER.instagram, Icon: InstagramIcon, color: 'hover:text-pink-400 hover:border-pink-400/40' },
   { label: 'Email', sub: USER.email, href: `mailto:${USER.email}`, Icon: EmailIcon, color: 'hover:text-accent hover:border-accent/40' },
+  { label: 'LinkedIn', sub: '@lazyekansh', href: USER.linkedin, Icon: LinkedInIcon, color: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/40' },
 ]
 
 const socialPlatforms = [
@@ -61,6 +65,13 @@ const socialPlatforms = [
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .67-.08.84-.23.2-.18.3-.46.3-.92v-2.07c0-.45-.1-.74-.3-.91zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.29 2.91-.01 2.43-.02 2.53-.44 2.96zm4.93-1.44c0 1.77-.33 2.71-.95 2.71-.53 0-.87-.47-.87-1.37V11.8c0-.9.34-1.37.87-1.37.62 0 .95.94.95 2.71v.72zm5.47-1.43c0-.39-.1-.67-.3-.87-.2-.19-.47-.29-.84-.29h-.56v4.56h.56c.37 0 .64-.1.84-.29.2-.2.3-.48.3-.87v-2.24z"/></svg>
     ),
   },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/lazyekansh',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    ),
+  },
 ]
 
 export default function ContactSection() {
@@ -70,7 +81,7 @@ export default function ContactSection() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="font-cabinet font-bold text-white mb-3" style={{ fontSize: 'clamp(40px,6vw,72px)' }}>
-            Let&apos;s talk.
+            Find Me.
           </h2>
           <p className="text-zinc-500 text-base font-satoshi max-w-lg mb-16">
             Open to collabs, projects, or just geeking out about OSINT and AI. Find me everywhere as <span className="text-white">@lazyekansh</span>.
@@ -78,8 +89,8 @@ export default function ContactSection() {
         </motion.div>
 
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Left: 4 contact cards in 2x2 grid */}
-          <div className="grid grid-cols-2 gap-3 md:flex-1">
+          {/* Left: 5 contact cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:flex-1">
             {links.map(({ label, sub, href, Icon, color }, i) => (
               <motion.a key={label} href={href}
                 target={href.startsWith('mailto') ? '_self' : '_blank'} rel="noopener noreferrer"
@@ -96,13 +107,13 @@ export default function ContactSection() {
             ))}
           </div>
 
-          {/* Right: 5 social platform buttons */}
+          {/* Right: 6 social platform buttons */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35 }}
-            className="grid grid-cols-5 md:grid-cols-3 gap-3 md:w-48"
+            className="grid grid-cols-6 sm:grid-cols-6 md:grid-cols-3 gap-3 md:w-48"
           >
             {socialPlatforms.map((platform) => (
               <motion.a

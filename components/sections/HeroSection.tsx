@@ -98,12 +98,12 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Animated character */}
+        {/* Animated character - hidden on mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
-          className="mt-12 md:mt-0 flex items-center justify-center md:w-[280px] lg:w-[320px] shrink-0"
+          className="hidden md:flex items-center justify-center md:w-[280px] lg:w-[320px] shrink-0"
         >
           <svg viewBox="0 0 200 220" className="w-48 md:w-64 lg:w-72" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Body */}

@@ -1,23 +1,38 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const ticking = useRef(false)
+
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', h)
-    return () => window.removeEventListener('scroll', h)
+    const onScroll = () => {
+      if (!ticking.current) {
+        ticking.current = true
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 40)
+          ticking.current = false
+        })
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
   return (
     <nav
-      className={`fixed z-50 transition-all duration-500 ease-in-out ${
+      className={`fixed z-50 will-change-transform transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled
-          ? 'top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-2xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-lg shadow-black/20'
+          ? 'top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-2xl bg-white/5 border border-white/10 rounded-full shadow-lg shadow-black/20'
           : 'top-0 left-0 right-0 w-full'
       }`}
+      style={{
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+      }}
     >
-      <div className={`mx-auto flex items-center justify-between transition-all duration-500 ${
+      <div className={`mx-auto flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
         scrolled ? 'px-5 h-12' : 'max-w-6xl px-6 md:px-10 h-16'
       }`}>
         <Link href="/" className="flex items-center gap-2 group">
