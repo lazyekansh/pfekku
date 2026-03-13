@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import { use } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, ExternalLink, ArrowRight } from 'lucide-react'
 import { PROJECTS } from '@/lib/data'
@@ -10,8 +11,6 @@ import Footer from '@/components/Footer'
 export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
   const project = PROJECTS.find(p => p.id === id)
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  const project = PROJECTS.find(p => p.id === params.id)
   if (!project) notFound()
 
   const others = PROJECTS.filter(p => p.id !== project.id).slice(0, 2)
