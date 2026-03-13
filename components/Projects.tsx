@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, ChessKnight, Brain, Instagram, Terminal, Cloud, Zap } from 'lucide-react'
+import { ExternalLink, Brain, Instagram, Terminal, Cloud, Zap } from 'lucide-react'
 import { FaChessKnight } from 'react-icons/fa'
 import { PROJECTS } from '@/lib/data'
 
