@@ -42,7 +42,7 @@ export default function StackSection() {
             Tools & Stack
           </h2>
           <p className="text-zinc-500 text-base max-w-2xl font-satoshi mb-16">
-            My tech stack spans frontend, backend, databases, and OSINT tooling. Here's what I actually use and how confident I am.
+            My tech stack spans frontend, backend, databases, and OSINT tooling. Here&apos;s what I actually use and how confident I am.
           </p>
         </motion.div>
 
