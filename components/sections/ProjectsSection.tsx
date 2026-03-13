@@ -23,11 +23,11 @@ function ChevronRightIcon() {
   )
 }
 
-function ProjectCard({ p }: { p: typeof PROJECTS[number] }) {
+function ProjectCard({ p, isCenter }: { p: typeof PROJECTS[number]; isCenter?: boolean }) {
   return (
     <TiltCard
       glowColor={p.accent + '55'}
-      className="h-full min-h-[200px] rounded-2xl border border-zinc-800 hover:border-zinc-600 transition-all"
+      className={`h-full min-h-[200px] rounded-2xl border border-zinc-800 hover:border-zinc-600 transition-all duration-500 ${isCenter ? 'scale-[1.03] shadow-xl shadow-black/30' : 'scale-100'}`}
     >
       <div className="absolute inset-0 rounded-2xl pointer-events-none"
         style={{ background: `radial-gradient(ellipse at 20% 20%, ${p.gradientFrom}, ${p.gradientTo} 60%, transparent)` }} />
@@ -61,17 +61,24 @@ function ProjectCard({ p }: { p: typeof PROJECTS[number] }) {
 
 const SCROLL_THRESHOLD = 10
 const SCROLL_PERCENTAGE = 0.7
+const CARD_WIDTH = 360
+const CARD_GAP = 16
 
 export default function ProjectsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
+  const [centerIndex, setCenterIndex] = useState(0)
 
   const checkScroll = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
     setCanScrollLeft(el.scrollLeft > SCROLL_THRESHOLD)
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - SCROLL_THRESHOLD)
+
+    const center = el.scrollLeft + el.clientWidth / 2
+    const idx = Math.round((center - CARD_WIDTH / 2) / (CARD_WIDTH + CARD_GAP))
+    setCenterIndex(Math.max(0, Math.min(idx, PROJECTS.length - 1)))
   }, [])
 
   useEffect(() => {
@@ -129,20 +136,24 @@ export default function ProjectsSection() {
           </motion.div>
         </div>
 
-        {/* Desktop/Tablet: horizontal carousel */}
+        {/* Desktop/Tablet: horizontal carousel with depth effect */}
         <div
           ref={scrollRef}
-          className="hidden md:flex gap-4 mt-8 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
-          style={{ scrollSnapType: 'x mandatory' }}
+          className="hidden md:flex gap-4 mt-8 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-2"
+          style={{ scrollSnapType: 'x mandatory', perspective: '1200px' }}
         >
           {PROJECTS.map((p, i) => (
             <motion.div key={p.id}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="flex-shrink-0 w-[360px]"
-              style={{ scrollSnapAlign: 'start' }}
+              className="flex-shrink-0 w-[360px] transition-all duration-500"
+              style={{
+                scrollSnapAlign: 'center',
+                transform: centerIndex === i ? 'scale(1)' : 'scale(0.95)',
+                opacity: centerIndex === i ? 1 : 0.75,
+              }}
             >
-              <ProjectCard p={p} />
+              <ProjectCard p={p} isCenter={centerIndex === i} />
             </motion.div>
           ))}
         </div>
