@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { USER } from '@/lib/data'
 
-const ROLES = ['Full Stack Developer', 'Builder', 'OSINT Engineer', 'JEE Aspirant']
+const ROLES = ['Full Stack Developer', 'Tech Builder', 'AI Enthusiast', 'JEE Aspirant']
 
 export default function HeroSection() {
   const [roleIdx, setRoleIdx] = useState(0)
@@ -91,7 +91,7 @@ export default function HeroSection() {
             className="mt-10 pl-4 border-l-4 border-accent/60">
             <p className="text-sm italic text-zinc-600 font-satoshi">
               Turning lines of code into tools that{' '}
-              <span className="shine-text font-medium" style={{ backgroundImage: 'linear-gradient(120deg,rgba(255,255,255,0) 30%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 70%)', backgroundSize: '200% 100%', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+              <span className="shine-text font-medium" style={{ backgroundImage: 'linear-gradient(120deg,rgba(255,255,255,0) 30%,rgba(255,255,255,0.8) 50%,rgba(255,255,255,0) 70%)', backgroundSize: '200% 100%', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'translucent' }}>
                 solve real problems.
               </span>
             </p>
