@@ -2,7 +2,6 @@
 import { motion } from 'framer-motion'
 import { use } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink, ArrowRight } from 'lucide-react'
 import { PROJECTS } from '@/lib/data'
 import { notFound } from 'next/navigation'
 import Navbar from '@/components/Navbar'
@@ -23,7 +22,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
 
           <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}>
             <Link href="/#projects" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-white transition-colors mb-14 group font-satoshi">
-              <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
               All projects
             </Link>
           </motion.div>
@@ -44,9 +43,10 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             <p className="text-zinc-400 text-lg leading-relaxed font-satoshi mb-8">{project.tagline}</p>
 
             <a href={project.link} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-black font-satoshi transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-black font-satoshi transition-all duration-300 hover:scale-105"
               style={{ background: project.accent }}>
-              Visit Project <ExternalLink size={13} />
+              Visit Project
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
           </motion.div>
 
@@ -84,7 +84,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             <h2 className="font-cabinet font-bold text-white text-2xl mb-5">Built with</h2>
             <div className="flex flex-wrap gap-2">
               {project.tech.map(t => (
-                <span key={t} className="text-xs px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 font-satoshi">{t}</span>
+                <span key={t} className="text-xs px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 font-satoshi hover:bg-zinc-800/60 hover:border-zinc-700 transition-all duration-300">{t}</span>
               ))}
             </div>
           </motion.div>
@@ -96,12 +96,13 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {others.map(p => (
                 <Link key={p.id} href={`/projects/${p.id}`}
-                  className="px-5 py-4 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800/50 hover:border-zinc-600 transition-all group">
+                  className="px-5 py-4 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800/50 hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 group">
                   <p className="text-[10px] uppercase tracking-widest font-satoshi mb-2" style={{ color: p.accent }}>{p.category}</p>
                   <h3 className="font-cabinet font-bold text-white text-lg mb-1 group-hover:text-accent transition-colors">{p.title}</h3>
                   <p className="text-zinc-500 text-xs font-satoshi leading-relaxed line-clamp-2">{p.desc}</p>
                   <div className="flex items-center gap-1 mt-3 text-xs text-zinc-600 group-hover:text-white transition-colors font-satoshi">
-                    View <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                    View
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                   </div>
                 </Link>
               ))}

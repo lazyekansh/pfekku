@@ -19,7 +19,7 @@ function SkillCard({ name, sub, glowColor }: { name: string; sub: string; glowCo
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={onMove}>
-      {/* Glow spot — exactly like Kavan's skills */}
+      {/* Glow spot */}
       {hovered && (
         <div className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 rounded-xl transition-opacity"
           style={{ background: `radial-gradient(60px circle at ${glow.x}px ${glow.y}px, ${glowColor}, transparent 70%)` }} />

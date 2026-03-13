@@ -3,10 +3,10 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Ekansh Tiwari | lazyekansh',
-  description: '16-year-old developer from Noida. Building OSINT tools, AI systems, and internet infrastructure.',
+  description: '16-year-old full stack developer from Noida. Building OSINT tools, AI systems, and internet infrastructure.',
   openGraph: {
     title: 'Ekansh Tiwari | lazyekansh',
-    description: 'Developer & Builder. OSINT · AI · Web.',
+    description: 'Full Stack Developer & Builder. OSINT / AI / Web.',
     type: 'website',
   },
 }
