@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { name, email, message } = await req.json()
@@ -11,6 +20,13 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+      return NextResponse.json(
+        { error: 'Invalid input.' },
+        { status: 400 }
+      )
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -18,6 +34,10 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       )
     }
+
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeMessage = escapeHtml(message)
 
     const nodemailer = await import('nodemailer')
 
@@ -33,15 +53,15 @@ export async function POST(req: NextRequest) {
       from: process.env.SMTP_USER,
       to: 'lazyekansh@gmail.com',
       replyTo: email,
-      subject: `Portfolio Contact: ${name}`,
+      subject: `Portfolio Contact: ${safeName}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
           <h2 style="color: #333;">New message from your portfolio</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Email:</strong> ${safeEmail}</p>
           <hr style="border: 1px solid #eee;" />
-          <p style="white-space: pre-wrap;">${message}</p>
+          <p style="white-space: pre-wrap;">${safeMessage}</p>
         </div>
       `,
     })
