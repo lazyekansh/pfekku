@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { MdLocationOn } from 'react-icons/md'
 import { FaGithub, FaTelegram, FaInstagram } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { Cube, Trophy, BookOpen } from 'lucide-react'
+import { Box, Trophy, BookOpen } from 'lucide-react'
 import { USER, SOCIALS, INTERESTS } from '@/lib/data'
 import MusicWidget from './MusicWidget'
 import ChessWidget from './ChessWidget'
@@ -19,7 +19,7 @@ const socialIcons: Record<string, React.ElementType> = {
 }
 
 const interestIcons: Record<string, React.ElementType> = {
-  cube: Cube,
+  cube: Box,
   trophy: Trophy,
   book: BookOpen,
 }
