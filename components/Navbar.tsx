@@ -22,19 +22,29 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed z-50 will-change-transform transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
-        scrolled
-          ? 'top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-2xl bg-white/5 border border-white/10 rounded-full shadow-lg shadow-black/20'
-          : 'top-0 left-0 right-0 w-full'
-      }`}
+      className="fixed z-50 top-0 left-0 right-0 w-full"
       style={{
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        transition: 'none',
       }}
     >
-      <div className={`mx-auto flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
-        scrolled ? 'px-5 h-12' : 'max-w-6xl px-6 md:px-10 h-16'
-      }`}>
+      <div
+        className="mx-auto flex items-center justify-between"
+        style={{
+          maxWidth: scrolled ? '42rem' : '72rem',
+          margin: '0 auto',
+          marginTop: scrolled ? '1rem' : '0',
+          padding: scrolled ? '0 1.25rem' : '0 1.5rem',
+          height: scrolled ? '3rem' : '4rem',
+          background: scrolled ? 'rgba(255,255,255,0.05)' : 'transparent',
+          border: scrolled ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent',
+          borderRadius: scrolled ? '9999px' : '0',
+          boxShadow: scrolled ? '0 10px 15px -3px rgba(0,0,0,0.2)' : 'none',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+          transition: 'max-width 0.5s cubic-bezier(0.16,1,0.3,1), margin-top 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.5s cubic-bezier(0.16,1,0.3,1), height 0.5s cubic-bezier(0.16,1,0.3,1), background 0.5s cubic-bezier(0.16,1,0.3,1), border 0.5s cubic-bezier(0.16,1,0.3,1), border-radius 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1), backdrop-filter 0.5s cubic-bezier(0.16,1,0.3,1), -webkit-backdrop-filter 0.5s cubic-bezier(0.16,1,0.3,1)',
+          willChange: 'max-width, margin-top, height, background, border-radius, backdrop-filter',
+        }}
+      >
         <Link href="/" className="flex items-center gap-2 group">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="font-cabinet text-sm font-bold text-white group-hover:text-accent transition-colors">lazyekansh</span>

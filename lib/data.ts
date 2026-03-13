@@ -7,7 +7,7 @@ export const USER = {
   github: 'https://github.com/lazyekansh',
   telegram: 'https://t.me/lazyekansh',
   instagram: 'https://instagram.com/lazyekansh',
-  shortBio: 'Ekansh Tiwari, also known online as lazyekansh or ek4nsh, is a young developer from Noida, India, born on 26 November 2009. I am known for building innovative tools and automation systems with a strong focus on OSINT platforms, AI systems, and developer utilities.',
+  shortBio: 'I am Ekansh Tiwari, also known online as lazyekansh or ek4nsh, a young developer from Noida, India, born on 26 November 2009. I build innovative tools and automation systems with a strong focus on OSINT platforms, AI systems, and developer utilities.',
   linkedin: 'https://linkedin.com/in/lazyekansh',
 }
 
