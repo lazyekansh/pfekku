@@ -7,16 +7,16 @@ export const USER = {
   github: 'https://github.com/lazyekansh',
   telegram: 'https://t.me/lazyekansh',
   instagram: 'https://instagram.com/lazyekansh',
-  shortBio: 'Ekansh Tiwari, also known online as lazyekansh or ek4nsh, is a young developer from Noida, India, born on 26 November 2009. I build tools, automation systems, and platforms with a strong focus on OSINT, AI systems, and developer utilities. I am the creator of projects like osint.ek4nsh.in and EheniasAI, an AI platform designed for aspirants. Despite being only 16 years old, I have already developed multiple APIs, bots, and web applications. Alongside technology, I am also a district level tennis player and I have a strong interest in chess and problem solving.',
+  shortBio: 'I started coding because I wanted to understand how the internet actually works, not just use it. That curiosity slowly turned into building real tools that people can use. Over time I began creating OSINT systems, Telegram bots, lookup APIs, and AI powered platforms. I am the creator of osint.ek4nsh.in, an OSINT toolkit focused on investigation utilities, and I am currently working on EheniasAI, an AI platform designed to help aspirants study more effectively.',
 }
 
 export const BIO = {
   headline: "I am Ekansh, a 16-year-old full stack developer obsessed with how the internet works.",
   paragraphs: [
-    "I started coding because I wanted to understand the internet, not just use it. That curiosity turned into building real tools: OSINT systems, Telegram bots, AI-powered study platforms, and lookup APIs that people actually use.",
-    "Right now I am juggling JEE prep alongside building EheniasAI for fellow aspirants and shipping whatever I can think of with React, Next.js, and Python. I go by lazyekansh everywhere, which is ironic because I genuinely do not stop building.",
-    "Outside of code I am a district-level tennis player, a daily chess puzzle solver (Rapid: 1613, Blitz: 1358), and a manga reader. I believe the same pattern recognition that helps you find a fork in chess is what helps you debug a race condition at 2am.",
-    "I am interested in OSINT, AI systems, and web infrastructure, anything that sits at the intersection of technology and the real world. If you are building something in that space, I would love to talk.",
+    "I started coding because I wanted to understand how the internet actually works, not just use it. That curiosity slowly turned into building real tools that people can use. Over time I began creating OSINT systems, Telegram bots, lookup APIs, and AI powered platforms. I am the creator of osint.ek4nsh.in, an OSINT toolkit focused on investigation utilities, and I am currently working on EheniasAI, an AI platform designed to help aspirants study more effectively.",
+    "My name is Ekansh Tiwari, and I go by lazyekansh or ek4nsh across the internet. I was born on 26 November 2009 and I am from Noida, India. I work mainly as a full stack developer, building web applications, automation tools, APIs, and experimental systems using technologies like React, Next.js, and Python. Right now I am balancing JEE preparation alongside building new tools and improving the projects I already maintain. The username lazyekansh is a bit ironic because I am usually always building something new.",
+    "Outside of programming, I am also a district level tennis player and someone who enjoys solving daily chess puzzles. My current ratings are Rapid 1613 and Blitz 1358. I also spend time reading manga and exploring new ideas around technology. I believe the same kind of pattern recognition that helps you find tactics in chess also helps when debugging complex systems late at night.",
+    "I am especially interested in OSINT, AI systems, and web infrastructure, particularly projects that connect technology with real world use cases. If you are building something in that space or working on interesting tools, I would genuinely love to talk and collaborate.",
   ],
   facts: [
     { label: 'Age', value: '16' },

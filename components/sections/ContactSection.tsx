@@ -77,44 +77,48 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-xl">
-          {links.map(({ label, sub, href, Icon, color }, i) => (
-            <motion.a key={label} href={href}
-              target={href.startsWith('mailto') ? '_self' : '_blank'} rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className={`flex items-center gap-4 px-5 py-4 rounded-xl border border-zinc-800 bg-zinc-900/40 text-zinc-400 transition-all duration-300 group hover:scale-[1.02] ${color}`}>
-              <span className="shrink-0"><Icon /></span>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-white font-satoshi">{label}</p>
-                <p className="text-xs text-zinc-500 truncate font-satoshi">{sub}</p>
-              </div>
-              <span aria-hidden="true"><ArrowUpRightIcon /></span>
-            </motion.a>
-          ))}
-        </div>
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Left: 4 contact cards in 2x2 grid */}
+          <div className="grid grid-cols-2 gap-3 md:flex-1">
+            {links.map(({ label, sub, href, Icon, color }, i) => (
+              <motion.a key={label} href={href}
+                target={href.startsWith('mailto') ? '_self' : '_blank'} rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                className={`flex items-center gap-4 px-5 py-4 rounded-xl border border-zinc-800 bg-zinc-900/40 text-zinc-400 transition-all duration-300 group hover:scale-[1.02] ${color}`}>
+                <span className="shrink-0"><Icon /></span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-white font-satoshi">{label}</p>
+                  <p className="text-xs text-zinc-500 truncate font-satoshi">{sub}</p>
+                </div>
+                <span aria-hidden="true"><ArrowUpRightIcon /></span>
+              </motion.a>
+            ))}
+          </div>
 
-        {/* Additional platform buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.35 }}
-          className="flex flex-wrap gap-3 mt-6 max-w-xl"
-        >
-          {socialPlatforms.map((platform) => (
-            <a
-              key={platform.label}
-              href={platform.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={platform.label}
-              className="w-11 h-11 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/40 text-zinc-500 hover:text-white hover:border-zinc-600 hover:bg-zinc-800/60 hover:scale-110 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
-            >
-              {platform.icon}
-            </a>
-          ))}
-        </motion.div>
+          {/* Right: 5 social platform buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.35 }}
+            className="grid grid-cols-5 md:grid-cols-3 gap-3 md:w-48"
+          >
+            {socialPlatforms.map((platform) => (
+              <motion.a
+                key={platform.label}
+                href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={platform.label}
+                whileHover={{ scale: 1.1 }}
+                className="aspect-square flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/40 text-zinc-500 hover:text-white hover:border-zinc-600 hover:bg-zinc-800/60 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
+              >
+                {platform.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
 
       </div>
     </section>
