@@ -59,6 +59,9 @@ function ProjectCard({ p }: { p: typeof PROJECTS[number] }) {
   )
 }
 
+const SCROLL_THRESHOLD = 10
+const SCROLL_PERCENTAGE = 0.7
+
 export default function ProjectsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
@@ -67,8 +70,8 @@ export default function ProjectsSection() {
   const checkScroll = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    setCanScrollLeft(el.scrollLeft > 10)
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10)
+    setCanScrollLeft(el.scrollLeft > SCROLL_THRESHOLD)
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - SCROLL_THRESHOLD)
   }, [])
 
   useEffect(() => {
@@ -86,7 +89,7 @@ export default function ProjectsSection() {
   const scroll = (dir: 'left' | 'right') => {
     const el = scrollRef.current
     if (!el) return
-    const amount = el.clientWidth * 0.7
+    const amount = el.clientWidth * SCROLL_PERCENTAGE
     el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' })
   }
 

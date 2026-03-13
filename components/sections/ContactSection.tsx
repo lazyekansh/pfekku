@@ -89,7 +89,7 @@ export default function ContactSection() {
                 <p className="text-sm font-medium text-white font-satoshi">{label}</p>
                 <p className="text-xs text-zinc-500 truncate font-satoshi">{sub}</p>
               </div>
-              <ArrowUpRightIcon />
+              <span aria-hidden="true"><ArrowUpRightIcon /></span>
             </motion.a>
           ))}
         </div>
