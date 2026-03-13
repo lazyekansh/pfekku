@@ -2,6 +2,19 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
+const NAVBAR_TRANSITION = [
+  'max-width 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'margin-top 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'padding 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'height 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'background 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'border 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'border-radius 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'box-shadow 0.5s cubic-bezier(0.16,1,0.3,1)',
+  'backdrop-filter 0.5s cubic-bezier(0.16,1,0.3,1)',
+  '-webkit-backdrop-filter 0.5s cubic-bezier(0.16,1,0.3,1)',
+].join(', ')
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const ticking = useRef(false)
@@ -28,12 +41,12 @@ export default function Navbar() {
       }}
     >
       <div
-        className="mx-auto flex items-center justify-between"
+        className={`mx-auto flex items-center justify-between ${
+          scrolled ? 'px-5' : 'px-6 md:px-10'
+        }`}
         style={{
           maxWidth: scrolled ? '42rem' : '72rem',
-          margin: '0 auto',
           marginTop: scrolled ? '1rem' : '0',
-          padding: scrolled ? '0 1.25rem' : '0 1.5rem',
           height: scrolled ? '3rem' : '4rem',
           background: scrolled ? 'rgba(255,255,255,0.05)' : 'transparent',
           border: scrolled ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent',
@@ -41,7 +54,7 @@ export default function Navbar() {
           boxShadow: scrolled ? '0 10px 15px -3px rgba(0,0,0,0.2)' : 'none',
           backdropFilter: scrolled ? 'blur(16px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-          transition: 'max-width 0.5s cubic-bezier(0.16,1,0.3,1), margin-top 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.5s cubic-bezier(0.16,1,0.3,1), height 0.5s cubic-bezier(0.16,1,0.3,1), background 0.5s cubic-bezier(0.16,1,0.3,1), border 0.5s cubic-bezier(0.16,1,0.3,1), border-radius 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1), backdrop-filter 0.5s cubic-bezier(0.16,1,0.3,1), -webkit-backdrop-filter 0.5s cubic-bezier(0.16,1,0.3,1)',
+          transition: NAVBAR_TRANSITION,
           willChange: 'max-width, margin-top, height, background, border-radius, backdrop-filter',
         }}
       >
