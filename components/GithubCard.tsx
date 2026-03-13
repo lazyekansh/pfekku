@@ -1,4 +1,5 @@
 import { FaGithub } from 'react-icons/fa'
+import Image from 'next/image'
 
 export default function GithubCard() {
   return (
@@ -22,11 +23,13 @@ export default function GithubCard() {
         </div>
       </div>
 
-      <div className="flex-1 w-full bg-[#0d1117] flex items-center justify-center overflow-hidden min-h-[110px]">
-        <img
+      <div className="flex-1 w-full bg-[#0d1117] flex items-center justify-center overflow-hidden min-h-[110px] relative">
+        <Image
           src="https://raw.githubusercontent.com/lazyekansh/lazyekansh/output/github-contribution-grid-snake.svg"
           alt="Github contribution snake"
-          className="w-full h-full object-cover object-left opacity-75 group-hover:opacity-100 transition-opacity"
+          fill
+          className="object-cover object-left opacity-75 group-hover:opacity-100 transition-opacity"
+          unoptimized
         />
       </div>
     </a>
