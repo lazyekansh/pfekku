@@ -1,5 +1,4 @@
 'use client'
-import { use } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, ExternalLink, ArrowRight } from 'lucide-react'
@@ -11,6 +10,8 @@ import Footer from '@/components/Footer'
 export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
   const project = PROJECTS.find(p => p.id === id)
+export default function ProjectPage({ params }: { params: { id: string } }) {
+  const project = PROJECTS.find(p => p.id === params.id)
   if (!project) notFound()
 
   const others = PROJECTS.filter(p => p.id !== project.id).slice(0, 2)
@@ -28,6 +29,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             </Link>
           </motion.div>
 
+          {/* Header */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md border font-satoshi"
@@ -49,6 +51,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             </a>
           </motion.div>
 
+          {/* Gradient hero banner */}
           <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
             className="mt-12 h-52 rounded-2xl border border-zinc-800 flex items-center justify-center overflow-hidden relative"
             style={{ background: `linear-gradient(135deg, ${project.gradientFrom}, ${project.gradientTo})` }}>
@@ -58,11 +61,13 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             </span>
           </motion.div>
 
+          {/* Long desc */}
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
             className="mt-12 text-zinc-300 text-base leading-[1.9] font-satoshi">
             {project.longDesc}
           </motion.p>
 
+          {/* Features */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="mt-12">
             <h2 className="font-cabinet font-bold text-white text-2xl mb-5">What it does</h2>
             <div className="space-y-3">
@@ -75,6 +80,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             </div>
           </motion.div>
 
+          {/* Tech */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="mt-12">
             <h2 className="font-cabinet font-bold text-white text-2xl mb-5">Built with</h2>
             <div className="flex flex-wrap gap-2">
@@ -84,6 +90,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
             </div>
           </motion.div>
 
+          {/* Other projects */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
             className="mt-20 pt-12 border-t border-white/5">
             <h2 className="font-cabinet font-bold text-white text-xl mb-5">More projects</h2>
