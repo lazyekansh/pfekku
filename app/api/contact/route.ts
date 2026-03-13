@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
       to: 'lazyekansh@gmail.com',
       replyTo: email,
       subject: `Portfolio Contact: ${safeName}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      text: `Name: ${safeName}\nEmail: ${safeEmail}\n\nMessage:\n${safeMessage}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
           <h2 style="color: #333;">New message from your portfolio</h2>

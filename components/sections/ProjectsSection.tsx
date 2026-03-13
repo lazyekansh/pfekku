@@ -76,6 +76,7 @@ export default function ProjectsSection() {
     setCanScrollLeft(el.scrollLeft > SCROLL_THRESHOLD)
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - SCROLL_THRESHOLD)
 
+    // Calculate which card is closest to the viewport center
     const center = el.scrollLeft + el.clientWidth / 2
     const idx = Math.round((center - CARD_WIDTH / 2) / (CARD_WIDTH + CARD_GAP))
     setCenterIndex(Math.max(0, Math.min(idx, PROJECTS.length - 1)))
