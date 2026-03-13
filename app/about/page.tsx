@@ -28,7 +28,8 @@ export default function AboutPage() {
             </h1>
 
             <div className="flex flex-wrap gap-4 text-xs text-zinc-500 font-satoshi mb-14">
-              <span className="flex items-center gap-1.5">📍 {USER.location}</span>
+
+              <span className="flex items-center gap-1.5"> {USER.location}</span>
               <span>· 16 years old ·</span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse inline-block" />

@@ -7,6 +7,9 @@ import { notFound } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
+  const project = PROJECTS.find(p => p.id === id)
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = PROJECTS.find(p => p.id === params.id)
   if (!project) notFound()
