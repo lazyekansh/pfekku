@@ -26,7 +26,6 @@ const links = [
   { label: 'Telegram', sub: '@lazyekansh', href: USER.telegram, Icon: TelegramIcon, color: 'hover:text-[#2AABEE] hover:border-[#2AABEE]/40' },
   { label: 'Instagram', sub: '@lazyekansh', href: USER.instagram, Icon: InstagramIcon, color: 'hover:text-pink-400 hover:border-pink-400/40' },
   { label: 'Email', sub: USER.email, href: `mailto:${USER.email}`, Icon: EmailIcon, color: 'hover:text-accent hover:border-accent/40' },
-  { label: 'LinkedIn', sub: '@lazyekansh', href: USER.linkedin, Icon: LinkedInIcon, color: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/40' },
 ]
 
 const socialPlatforms = [
